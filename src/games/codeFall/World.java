@@ -1,13 +1,11 @@
 package games.codeFall;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
 import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -19,10 +17,9 @@ import app.AppWorld;
 
 public class World extends AppWorld {
 
-	public final static String GAME_FOLDER_NAME="codeFall";
-	public final static String DIRECTORY_SOUNDS="musics"+File.separator+GAME_FOLDER_NAME+File.separator;
-	public final static String DIRECTORY_MUSICS="musics"+File.separator+GAME_FOLDER_NAME+File.separator;
-	public final static String DIRECTORY_IMAGES="images"+File.separator+GAME_FOLDER_NAME+File.separator;
+	public final static String DIRECTORY_SOUNDS="/sounds/codeFall/";
+	public final static String DIRECTORY_MUSICS="/musics/codeFall/";
+	public final static String DIRECTORY_IMAGES="/images/codeFall/";
 	public final static TrueTypeFont Font = AppLoader.loadFont("/fonts/vt323.ttf", AppFont.BOLD, 20);
 
 	public static Image fondPlateforme;
@@ -39,17 +36,13 @@ public class World extends AppWorld {
 	ArrayList<Projectile> projectiles;
 
 	static {
-		try {
-			fondPlateforme = new Image(DIRECTORY_IMAGES+"plateforme.png");
-			fond = new Image(DIRECTORY_IMAGES+"fond.png");
-			casse[0] = new Image(DIRECTORY_IMAGES+"destroy1.png");
-			casse[1] = new Image(DIRECTORY_IMAGES+"destroy2.png");
-			casse[2] = new Image(DIRECTORY_IMAGES+"destroy3.png");
-			casse[3] = new Image(DIRECTORY_IMAGES+"destroy4.png");
-			ammo = new Image(DIRECTORY_IMAGES+"c.png");
-		} catch (SlickException e) {
-			e.printStackTrace();
-		}
+		fondPlateforme = AppLoader.loadPicture(DIRECTORY_IMAGES+"plateforme.png");
+		fond = AppLoader.loadPicture(DIRECTORY_IMAGES+"fond.png");
+		casse[0] = AppLoader.loadPicture(DIRECTORY_IMAGES+"destroy1.png");
+		casse[1] = AppLoader.loadPicture(DIRECTORY_IMAGES+"destroy2.png");
+		casse[2] = AppLoader.loadPicture(DIRECTORY_IMAGES+"destroy3.png");
+		casse[3] = AppLoader.loadPicture(DIRECTORY_IMAGES+"destroy4.png");
+		ammo = AppLoader.loadPicture(DIRECTORY_IMAGES+"c.png");
 	}
 
 	public World (int ID) {
